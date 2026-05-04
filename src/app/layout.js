@@ -8,17 +8,23 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "KABYA | Portfolio",
-  description: "Explore Kabya Kishor Halder's portfolio. Specializing in building polished high-production ready systems and scalable, user-focused products with modern technologies.",
-  keywords: ["Kabya Kishor Halder", "Portfolio", "Full-Stack Developer", "Next.js Developer", "Software Engineer"],
+  title: "Developer Kabya",
+  description:
+    "Explore Kabya Kishor Halder's portfolio. Specializing in building polished high-production ready systems and scalable, user-focused products with modern technologies.",
+  keywords: [
+    "Kabya Kishor Halder",
+    "Portfolio",
+    "Full-Stack Developer",
+    "Next.js Developer",
+    "Software Engineer",
+  ],
   authors: [{ name: "Kabya Kishor Halder" }],
   creator: "Kabya Kishor Halder",
 
-
   openGraph: {
     title: "KABYA | Portfolio",
-    description: "Building polished high-production ready systems and scalable, user-focused products.",
-
+    description:
+      "Building polished high-production ready systems and scalable, user-focused products.",
   },
 };
 
@@ -29,7 +35,11 @@ import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${manrope.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <body className="font-sans">
         <SmoothScroll>
           <CursorFollower />
