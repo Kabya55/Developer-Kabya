@@ -53,7 +53,7 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen pt-48 pb-20 overflow-visible grid grid-cols-1 items-center"
+      className="relative min-h-screen pt-48 pb-20 overflow-hidden grid grid-cols-1 items-center"
     >
       {/* Space-Themed Nebula Glows */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#462C7D]/20 blur-[150px] rounded-full -z-10 animate-pulse" />
@@ -61,7 +61,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         {/* Narrative Column */}
-        <div className="lg:col-span-7 z-10 order-2 lg:order-1">
+        <div className="lg:col-span-7 z-10 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-6xl md:text-[7.5rem] font-black leading-[1] mb-20 text-gradient italic tracking-tighter pr-6 pb-4"
+            className="text-5xl md:text-[7.5rem] font-black leading-[1] mb-20 text-gradient italic tracking-tighter pb-4 w-full"
           >
             Hi, I'm Kabya <br /> I'm a Web Developer.
           </motion.h1>

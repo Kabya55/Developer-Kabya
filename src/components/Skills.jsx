@@ -14,7 +14,7 @@ const Skills = () => {
 
     const icons = orbitRef.current.children;
     const totalIcons = icons.length;
-    const radius = window.innerWidth < 768 ? 160 : 340;
+    const radius = window.innerWidth < 768 ? 120 : 340;
 
     // Orbital mechanics
     gsap.set(icons, {
@@ -65,20 +65,20 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-5xl md:text-[9rem] font-black mb-12 tracking-tighter italic text-gradient pr-10 pb-6 leading-tight">Skills & Technologies</h2>
-          <p className="text-text-secondary max-w-3xl mx-auto mb-40 text-2xl leading-relaxed font-medium opacity-80">
+          <h2 className="text-4xl md:text-[9rem] font-black mb-8 md:mb-12 tracking-tighter italic text-gradient px-4 md:pr-10 md:px-0 pb-6 leading-tight">Skills & Technologies</h2>
+          <p className="text-text-secondary max-w-3xl mx-auto mb-20 md:mb-40 text-lg md:text-2xl leading-relaxed font-medium opacity-80 px-4 md:px-0">
             Built with <span className="text-accent glow-text italic">high-performance technology</span> and modern user experience.
           </p>
         </motion.div>
 
         {/* Orbital System */}
-        <div className="relative max-w-5xl mx-auto h-[500px] md:h-[750px] flex items-center justify-center">
+        <div className="relative max-w-5xl mx-auto h-[400px] md:h-[750px] flex items-center justify-center">
           <div ref={orbitRef} className="relative w-full h-full flex items-center justify-center">
             {skills.map((skill, i) => (
               <motion.div
                 key={skill.name}
                 whileHover={{ scale: 1.3, backgroundColor: "rgba(var(--accent-rgb), 0.2)", borderColor: "var(--accent)" }}
-                className="absolute w-20 h-20 md:w-32 md:h-32 glass rounded-[2rem] md:rounded-[3.5rem] flex items-center justify-center text-4xl md:text-6xl shadow-2xl cursor-pointer group transition-all duration-700"
+                className="absolute w-16 h-16 md:w-32 md:h-32 glass rounded-2xl md:rounded-[3.5rem] flex items-center justify-center text-3xl md:text-6xl shadow-2xl cursor-pointer group transition-all duration-700"
               >
                 <span className="group-hover:drop-shadow-[0_0_25px_var(--glow-color)] transition-all scale-75 md:scale-100">
                   {skill.icon}
@@ -91,19 +91,19 @@ const Skills = () => {
           </div>
 
           {/* Central Structural Node */}
-          <div className="w-48 h-48 md:w-80 md:h-80 bg-accent/10 rounded-[4rem] md:rounded-[7rem] flex items-center justify-center relative z-10 glow-accent border border-accent/20 group backdrop-blur-3xl shadow-2xl">
+          <div className="w-32 h-32 md:w-80 md:h-80 bg-accent/10 rounded-[3rem] md:rounded-[7rem] flex items-center justify-center relative z-10 glow-accent border border-accent/20 group backdrop-blur-3xl shadow-2xl">
             <div className="absolute inset-0 bg-accent/5 rounded-[7rem] animate-ping opacity-10" />
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="text-7xl md:text-[10rem] font-black text-accent glow-text tracking-tighter italic"
+              className="text-5xl md:text-[10rem] font-black text-accent glow-text tracking-tighter italic"
             >
               M
             </motion.div>
 
             {/* Constellation Lines */}
-            <div className="absolute w-[400px] h-[400px] md:w-[650px] md:h-[650px] border border-accent/5 rounded-full" />
-            <div className="absolute w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] border border-accent/5 rounded-full" />
+            <div className="absolute w-[280px] h-[280px] md:w-[650px] md:h-[650px] border border-accent/5 rounded-full pointer-events-none" />
+            <div className="absolute w-[380px] h-[380px] md:w-[1000px] md:h-[1000px] border border-accent/5 rounded-full pointer-events-none" />
           </div>
         </div>
       </div>

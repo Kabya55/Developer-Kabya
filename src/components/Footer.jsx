@@ -24,7 +24,7 @@ const Footer = () => {
         </motion.div>
 
         {/* Global Navigation - Grid Layout */}
-        <nav className="grid grid-flow-col auto-cols-max gap-10 md:gap-16 mb-24 text-[10px] font-black text-text-secondary uppercase tracking-[0.4em] justify-center">
+        <nav className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12 mb-24 text-[20px] font-black text-text-secondary uppercase tracking-[0.3em] md:tracking-[0.4em]">
           {[
             { name: "Home", href: "/" },
             { name: "Projects", href: "/projects" },
@@ -34,11 +34,14 @@ const Footer = () => {
           ].map((link) => (
             <motion.a
               key={link.name}
-              whileHover={{ color: "var(--foreground)", y: -5 }}
-              className="hover:text-text-primary transition-all duration-500"
+              whileHover={{ y: -4 }}
+              className="relative group transition-all duration-500 hover:text-white"
               href={link.href}
             >
               {link.name}
+
+              {/* Animated Underline */}
+              <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gradient-to-r from-accent to-soft transition-all duration-500 group-hover:w-full"></span>
             </motion.a>
           ))}
         </nav>
