@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Kabya's Premium Developer Portfolio
 
-## Getting Started
+A stunning, Apple-inspired, space-themed personal portfolio built with modern web technologies. Designed with a strong focus on aesthetics, fluid animations, and a beautiful glassmorphism UI.
 
-First, run the development server:
+## ✨ Features
+- **Premium Design:** Glassmorphism UI, custom gradients, and a "Space-Themed Nebula Glow" aesthetic.
+- **Fluid Animations:** Advanced page transitions and micro-interactions powered by Framer Motion & GSAP.
+- **Smooth Scrolling:** Integrated Lenis for a buttery-smooth scrolling experience.
+- **Dark/Light Mode:** Seamless theme switching with persistent local storage.
+- **Fully Responsive:** Beautifully optimized for all devices (Mobile, Tablet, Desktop) with a custom burger menu.
+- **Custom Pages:** Dedicated App Router pages for Home, Projects, About, Skills, and Contact.
+- **Custom States:** Bespoke `loading.jsx` (animated spinner) and `not-found.jsx` (Lost in Space 404 page).
+
+---
+
+## 🛠️ Tech Stack
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Library:** [React 19](https://react.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Smooth Scroll:** [Lenis](https://lenis.studiofreight.com/)
+- **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+
+## 🚀 Getting Started
+
+First, clone the repository and install the dependencies:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📂 Project Structure
+- `/src/app`: Next.js App Router pages (`/projects`, `/about`, `/contact`, `/skills`).
+- `/src/components`: Reusable UI components (`Navbar`, `Footer`, `Hero`, `ProjectsPageComponent`, etc.).
+- `/public`: Static assets, logos (e.g., `KabyaLogo4.png`), and images.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Design System
+The portfolio utilizes a highly customized Tailwind configuration to deliver its unique styling:
+- **Colors:** Deep purples, pink accents, soft highlights, and dynamic gradients.
+- **Glassmorphism:** Custom `.glass`, `.glass-nav`, and `.glass-card` utilities for frosted-glass effects.
+- **Glow Effects:** Custom `.glow-accent` and `.text-gradient` utility classes.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
+© 2026 Kabya Kishor Halder. All rights reserved.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Live URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+👉 https://developer-kabya.vercel.app
 
-## Deploy on Vercel
+## 🐙 GitHub URL:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👉 https://github.com/Kabya55/Developer-Kabya
