@@ -1,12 +1,10 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
-import { FiLinkedin, FiGithub, FiFacebook } from 'react-icons/fi';
-import Image from 'next/image';
-
-
+import React from "react";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import { FiLinkedin, FiGithub, FiFacebook } from "react-icons/fi";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -39,20 +37,39 @@ const About = () => {
             </div>
             <br />
 
-            <h2 className="text-4xl font-black mb-12 tracking-tighter text-gradient italic pr-4">Kabya</h2>
+            <h2 className="text-4xl font-black mb-12 tracking-tighter text-gradient italic pr-4">
+              Kabya
+            </h2>
             <p className="text-text-secondary text-sm mb-12 leading-relaxed font-medium">
-              Architecting scalable systems with a focus on human-centric design and accessibility.
+              Architecting scalable systems with a focus on human-centric design
+              and accessibility.
             </p>
 
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { icon: <FiLinkedin className="w-6 h-6" />, label: "LinkedIn", href: "https://www.linkedin.com/in/kabya-kishor-halder" },
-                { icon: <FiGithub className="w-6 h-6" />, label: "GitHub", href: "https://github.com/Kabya55" },
-                { icon: <FiFacebook className="w-6 h-6" />, label: "Facebook", href: "https://www.facebook.com/kabya55" }
+                {
+                  icon: <FiLinkedin className="w-6 h-6" />,
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/in/kabya-kishor-halder",
+                },
+                {
+                  icon: <FiGithub className="w-6 h-6" />,
+                  label: "GitHub",
+                  href: "https://github.com/Kabya55",
+                },
+                {
+                  icon: <FiFacebook className="w-6 h-6" />,
+                  label: "Facebook",
+                  href: "https://www.facebook.com/kabya55",
+                },
               ].map((social) => (
                 <motion.a
                   key={social.label}
-                  whileHover={{ y: -8, backgroundColor: "rgba(var(--accent-rgb), 0.15)", borderColor: "var(--accent)" }}
+                  whileHover={{
+                    y: -8,
+                    backgroundColor: "rgba(var(--accent-rgb), 0.15)",
+                    borderColor: "var(--accent)",
+                  }}
                   className="p-4 bg-white/5 rounded-[1.5rem] border border-white/5 transition-all duration-500 flex items-center justify-center shadow-lg"
                   href={social.href}
                   target="_blank"
@@ -63,7 +80,6 @@ const About = () => {
                 </motion.a>
               ))}
             </div>
-
           </motion.div>
 
           {/* Bio Narrative */}
@@ -81,15 +97,23 @@ const About = () => {
                 Hi,I'm Kabya Kishor Halder.
               </h3>
               <p className="text-text-secondary text-2xl mb-10 leading-relaxed font-medium">
-                I am a passionate web developer who loves building modern, user-friendly applications. I enjoy working with technologies like HTML, CSS, Tailwind CSS, React, Next.js, MongoDB, Express.js, Node.js, and Firebase to create responsive and dynamic web experiences.
+                I am a passionate web developer who loves building modern,
+                user-friendly applications. I enjoy working with technologies
+                like HTML, CSS, Tailwind CSS, React, Next.js, MongoDB,
+                Express.js, Node.js, and Firebase to create responsive and
+                dynamic web experiences.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-xl">
                 <motion.a
-                  href="https://drive.google.com/file/d/13y7bAjnA_VlnvN1dqE8IDKdRChEj2LXD/view?usp=sharing"
+                  href="https://drive.google.com/file/d/10VByVGUbLs1q5oPuEwuNt4xWQpxDpLRl/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ x: 12, backgroundColor: "var(--secondary)", scale: 1.02 }}
+                  whileHover={{
+                    x: 12,
+                    backgroundColor: "var(--secondary)",
+                    scale: 1.02,
+                  }}
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center justify-center gap-6 bg-secondary px-12 py-7 rounded-[2rem] font-black text-[10px] uppercase tracking-[0.4em] transition-all shadow-2xl border border-white/5 text-white cursor-pointer"
                 >

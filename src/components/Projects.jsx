@@ -1,12 +1,20 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
-import Image from 'next/image';
+import React, { useRef } from "react";
+import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const GithubIcon = ({ className }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58V22" />
   </svg>
 );
@@ -64,7 +72,11 @@ const ProjectCard = ({ project, index }) => {
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, backgroundColor: "var(--foreground)", color: "var(--background)" }}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "var(--foreground)",
+              color: "var(--background)",
+            }}
             className="p-6 bg-white/5 backdrop-blur-3xl text-text-primary rounded-3xl border border-white/10 shadow-2xl transition-all"
           >
             <GithubIcon className="w-8 h-8" />
@@ -73,7 +85,11 @@ const ProjectCard = ({ project, index }) => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, backgroundColor: "var(--accent)", color: "#fff" }}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "var(--accent)",
+              color: "#fff",
+            }}
             className="p-6 bg-accent/20 backdrop-blur-3xl text-accent rounded-3xl border border-accent/20 shadow-2xl transition-all"
           >
             <ExternalLink className="w-8 h-8" />
@@ -82,7 +98,7 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       <div style={{ transform: "translateZ(50px)" }}>
-        <h3 className="text-2xl md:text-4xl font-black mb-6 md:mb-8 tracking-tighter text-gradient group-hover:text-accent transition-colors italic">
+        <h3 className="text-2xl md:text-4xl font-black pr-3 mb-6 md:mb-8 tracking-tighter text-gradient group-hover:text-accent transition-colors italic">
           {project.title}
         </h3>
         <p className="text-text-secondary text-base md:text-xl mb-10 md:mb-12 leading-relaxed font-medium opacity-80">
@@ -90,8 +106,11 @@ const ProjectCard = ({ project, index }) => {
         </p>
 
         <div className="flex flex-wrap gap-4 mb-10 md:mb-16">
-          {project.tags.map(tag => (
-            <span key={tag} className="px-6 py-2.5 bg-secondary/20 text-accent rounded-full text-[10px] font-black border border-accent/10 tracking-[0.4em] uppercase transition-all group-hover:border-accent/40">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-6 py-2.5 bg-secondary/20 text-accent rounded-full text-[10px] font-black border border-accent/10 tracking-[0.4em] uppercase transition-all group-hover:border-accent/40"
+            >
               {tag}
             </span>
           ))}
@@ -104,12 +123,47 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
   const projectList = [
     {
+      title: "MediQueue",
+      description:
+        "MediQueue is a premium, state-of-the-art tutor booking platform designed to simplify schedule planning, eliminate booking conflicts, and deliver a smooth learning session management flow for both students and instructors.",
+      tags: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "JSON Web Tokens (JWT)",
+        "JS",
+        "Tailwind",
+        "MongoDB",
+      ],
+      image: "/mediQueue.png",
+      repo: "https://github.com/Kabya55/MediQueue-clien",
+      link: "https://medi-queue-clien.vercel.app",
+    },
+    {
+      title: "wanderlust",
+      description:
+        "wanderlust is a travel planning application that helps users discover and organize their dream destinations.",
+      tags: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "JSON Web Tokens (JWT)",
+        "JS",
+        "Tailwind",
+        "MongoDB",
+      ],
+      image: "/wanderlust.png",
+      repo: "https://github.com/Kabya55/https://github.com/Kabya55/Programming-Hero-13/tree/main/Modul-52-wanderlust",
+      link: "https://modul-52-wanderlust.vercel.app",
+    },
+    {
       title: "Digital Book Library",
-      description: "A full-stack online book store that enables users to discover, search, and borrow books with a seamless and responsive user experience.",
+      description:
+        "A full-stack online book store that enables users to discover, search, and borrow books with a seamless and responsive user experience.",
       tags: ["Next.js", "JS", "Tailwind", "MongoDB"],
       image: "/home.png",
       repo: "https://github.com/Kabya55/Digital-Book-Library",
-      link: "https://digital-book-library-five.vercel.app"
+      link: "https://digital-book-library-five.vercel.app",
     },
     {
       title: "Dragon News",
@@ -117,7 +171,7 @@ const Projects = () => {
       tags: ["Next.js", "JS", "Tailwind", "MongoDB"],
       image: "/dragon-news.png",
       repo: "https://github.com/Kabya55/Programming-Hero-13/tree/main/Modul-46-dragon-news-next",
-      link: "https://programming-hero-13-ztsh.vercel.app/category/08"
+      link: "https://programming-hero-13-ztsh.vercel.app/category/08",
     },
     {
       title: "PixGen AI",
@@ -125,16 +179,17 @@ const Projects = () => {
       tags: ["Next.js", "JS", "Tailwind", "MongoDB"],
       image: "/pixgen-next.png",
       repo: "https://github.com/Kabya55/Programming-Hero-13/tree/main/pixgen-next",
-      link: "https://programming-hero-13-sltu.vercel.app/"
+      link: "https://programming-hero-13-sltu.vercel.app/",
     },
     {
       title: "Kin-Keeper",
-      description: "Enterprise-level project management tool with AI-driven insights and automated workflow integrations.",
+      description:
+        "Enterprise-level project management tool with AI-driven insights and automated workflow integrations.",
       tags: ["React", "JS", "Tailwind", "daisyUI"],
       image: "/Kin-Keeper.png",
       repo: "https://github.com/Kabya55/Programming-Hero-13/tree/main/Assinment-7",
-      link: "https://kin-keeper-zeta.vercel.app"
-    }
+      link: "https://kin-keeper-zeta.vercel.app",
+    },
   ];
 
   return (

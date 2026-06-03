@@ -29,7 +29,7 @@ const Qualification = () => {
               viewport={{ once: true }}
               className="flex items-center gap-6 mb-20 justify-center lg:justify-start"
             >
-              <div className="w-16 h-16 bg-secondary/30 rounded-[1.5rem] flex items-center justify-center font-black text-highlight border border-highlight/10 shadow-2xl">XP</div>
+              <div className="w-16 h-16 bg-secondary/30 rounded-[1.5rem] flex items-center justify-center font-black text-highlight border border-highlight/10 shadow-2xl">ED</div>
               <h3 className="text-4xl font-black italic tracking-tighter uppercase tracking-[0.1em]">Education</h3>
             </motion.div>
 
@@ -65,7 +65,7 @@ const Qualification = () => {
               viewport={{ once: true }}
               className="flex items-center gap-6 mb-20 justify-center lg:justify-start"
             >
-              <div className="w-16 h-16 bg-secondary/30 rounded-[1.5rem] flex items-center justify-center font-black text-highlight border border-highlight/10 shadow-2xl">ED</div>
+              <div className="w-16 h-16 bg-secondary/30 rounded-[1.5rem] flex items-center justify-center font-black text-highlight border border-highlight/10 shadow-2xl">XP</div>
               <h3 className="text-4xl font-black italic tracking-tighter uppercase tracking-[0.1em]">Experience</h3>
             </motion.div>
 
