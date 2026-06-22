@@ -8,7 +8,7 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "Developer Kabya",
+  title: "Developer Kabya || Kabya Kishor Halder",
   description:
     "Explore Kabya Kishor Halder's portfolio. Specializing in building polished high-production ready systems and scalable, user-focused products with modern technologies.",
   keywords: [
