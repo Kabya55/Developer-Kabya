@@ -26,6 +26,9 @@ export const metadata = {
     description:
       "Building polished high-production ready systems and scalable, user-focused products.",
   },
+  verification: {
+    google: "H3SM-jHIblr7m4mtMXLAL0m2X858dPGrCQQ2xZWlLqg",
+  },
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
