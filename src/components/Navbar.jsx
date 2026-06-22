@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import React, { useState, useEffect } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +20,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("light");
 
   const headerPadding = useTransform(scrollY, [0, 100], ["28px", "16px"]);
 
@@ -26,18 +31,18 @@ const Navbar = () => {
       setIsScrolled(latest > 50);
     });
 
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
-    document.documentElement.classList.toggle('light', savedTheme === 'light');
+    document.documentElement.classList.toggle("dark", savedTheme === "dark");
 
     return () => unsubscribe();
   }, [scrollY]);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   const navLinks = [
@@ -54,14 +59,13 @@ const Navbar = () => {
         paddingTop: headerPadding,
         paddingBottom: headerPadding,
       }}
-      className={`fixed top-0 w-full z-50 transition-all duration-700 glass-nav ${isScrolled ? 'shadow-2xl' : 'bg-opacity-0 border-transparent'
-        }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-700 glass-nav ${
+        isScrolled ? "shadow-2xl" : "bg-opacity-0 border-transparent"
+      }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between min-h-[70px]">
-
         {/* LEFT SECTION (Mobile: Menu + Logo | Desktop: Logo only) */}
         <div className="flex items-center gap-3">
-
           {/* Mobile Menu Button */}
           <div className="xl:hidden">
             <motion.button
@@ -93,12 +97,16 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative group transition-all duration-500 ${isActive ? 'text-accent' : 'hover:text-accent'
-                  }`}
+                className={`relative group transition-all duration-500 ${
+                  isActive ? "text-accent" : "hover:text-accent"
+                }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-3 left-0 h-0.5 bg-gradient-to-r from-secondary to-soft transition-all duration-700 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`} />
+                <span
+                  className={`absolute -bottom-3 left-0 h-0.5 bg-gradient-to-r from-secondary to-soft transition-all duration-700 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             );
           })}
@@ -106,7 +114,6 @@ const Navbar = () => {
 
         {/* RIGHT SECTION (Theme button) */}
         <div className="flex items-center gap-4">
-
           {/* Theme Toggle */}
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -122,10 +129,11 @@ const Navbar = () => {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
                 >
-                  {theme === 'dark'
-                    ? <Moon className="w-5 h-5" />
-                    : <Sun className="w-5 h-5" />
-                  }
+                  {theme === "dark" ? (
+                    <Moon className="w-5 h-5" />
+                  ) : (
+                    <Sun className="w-5 h-5" />
+                  )}
                 </motion.div>
               </AnimatePresence>
             )}
@@ -138,7 +146,7 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="xl:hidden glass border-t border-white/5 overflow-hidden"
           >
@@ -148,10 +156,11 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`transition-all ${pathname === link.href
-                      ? 'text-accent'
-                      : 'text-text-secondary hover:text-accent'
-                    }`}
+                  className={`transition-all ${
+                    pathname === link.href
+                      ? "text-accent"
+                      : "text-text-secondary hover:text-accent"
+                  }`}
                 >
                   {link.name}
                 </Link>
