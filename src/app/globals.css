@@ -113,6 +113,49 @@ body {
   box-shadow: 0 10px 30px var(--glow-color);
 }
 
+.btn-resume {
+  background: var(--secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-resume:hover {
+  opacity: 0.9;
+}
+
+.light .btn-resume {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.light .btn-resume:hover {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+.btn-transmission {
+  background: var(--btn-gradient);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white !important;
+}
+
+.btn-transmission:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px var(--glow-color);
+}
+
+.light .btn-transmission {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.light .btn-transmission:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
 /* Glowing Accents */
 .glow-accent {
   box-shadow: 0 0 30px var(--glow-color);

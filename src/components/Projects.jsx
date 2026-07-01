@@ -271,7 +271,7 @@ const Projects = () => {
                   onClick={() => handlePageChange(page)}
                   className={`w-12 h-12 rounded-2xl border text-sm font-black transition-all duration-300 cursor-pointer ${
                     currentPage === page
-                      ? "bg-accent border-accent text-white shadow-lg glow-accent"
+                      ? "bg-accent border-accent [.light_&]:bg-[#D552A3] [.light_&]:border-[#D552A3] text-white shadow-lg glow-accent"
                       : "glass border-white/5 text-text-secondary hover:text-accent hover:border-accent/30"
                   }`}
                 >

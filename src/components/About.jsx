@@ -111,11 +111,10 @@ const About = () => {
                   rel="noopener noreferrer"
                   whileHover={{
                     x: 12,
-                    backgroundColor: "var(--secondary)",
                     scale: 1.02,
                   }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-6 bg-secondary px-12 py-7 rounded-[2rem] font-black text-[10px] uppercase tracking-[0.4em] transition-all shadow-2xl border border-white/5 text-white cursor-pointer"
+                  className="flex items-center justify-center gap-6 btn-resume px-12 py-7 rounded-[2rem] font-black text-[10px] uppercase tracking-[0.4em] transition-all shadow-2xl text-white cursor-pointer"
                 >
                   Download Resume <Download className="w-6 h-6" />
                 </motion.a>

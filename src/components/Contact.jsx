@@ -161,7 +161,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02, y: -3 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={isSubmitting}
-                className="btn-gradient w-full py-5 md:py-8 rounded-2xl md:rounded-[3rem] font-black text-xl md:text-2xl flex items-center justify-center gap-6 shadow-2xl shadow-accent/30 disabled:opacity-50 text-white border border-white/10 cursor-pointer"
+                className="btn-transmission w-full py-5 md:py-8 rounded-2xl md:rounded-[3rem] font-black text-xl md:text-2xl flex items-center justify-center gap-6 shadow-2xl shadow-accent/30 disabled:opacity-50 text-white border border-white/10 cursor-pointer"
               >
                 {isSubmitting ? (
                   <div className="w-10 h-10 border-[5px] border-white/30 border-t-white rounded-full animate-spin" />

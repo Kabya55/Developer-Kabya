@@ -20,7 +20,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   const headerPadding = useTransform(scrollY, [0, 100], ["28px", "16px"]);
 
@@ -31,7 +31,7 @@ const Navbar = () => {
       setIsScrolled(latest > 50);
     });
 
-    const savedTheme = localStorage.getItem("theme") || "dark";
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("light", savedTheme === "light");
 
