@@ -3,14 +3,46 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState({ type: '', message: '' });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => setIsSubmitting(false), 2000);
+    setStatus({ type: '', message: '' });
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      title: "New Portfolio Message",
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setStatus({ type: 'success', message: 'Transmission Successful! Your message has been sent.' });
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        setStatus({ type: 'error', message: 'Transmission Failed. Please check console or try again.' });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -75,28 +107,61 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="glass-card p-8 md:p-20 rounded-3xl md:rounded-[5rem] border border-white/5 relative overflow-hidden"
           >
+            {status.message && (
+              <div className={`p-6 rounded-2xl text-center text-sm font-black mb-8 tracking-wider uppercase border ${
+                status.type === 'success'
+                  ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                  : 'bg-red-500/10 text-red-400 border-red-500/20'
+              }`}>
+                {status.message}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-8 md:gap-14 relative z-10">
               <div className="grid md:grid-cols-2 gap-6 md:gap-12">
                 <div className="grid grid-cols-1 gap-4">
                   <label className="text-[10px] font-black text-text-secondary uppercase tracking-[0.5em] ml-4">Identification</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded-[2.5rem] px-6 py-4 md:px-10 md:py-7 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 text-base md:text-xl font-medium" placeholder="Full Name" type="text" required />
+                  <input
+                    className="w-full bg-white/5 border border-white/10 rounded-[2.5rem] px-6 py-4 md:px-10 md:py-7 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 text-base md:text-xl font-medium"
+                    placeholder="Full Name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   <label className="text-[10px] font-black text-text-secondary uppercase tracking-[0.5em] ml-4">Secure Channel</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded-[2.5rem] px-6 py-4 md:px-10 md:py-7 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 text-base md:text-xl font-medium" placeholder="Email Address" type="email" required />
+                  <input
+                    className="w-full bg-white/5 border border-white/10 rounded-[2.5rem] px-6 py-4 md:px-10 md:py-7 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 text-base md:text-xl font-medium"
+                    placeholder="Email Address"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
                 <label className="text-[10px] font-black text-text-secondary uppercase tracking-[0.5em] ml-4">Protocol Details</label>
-                <textarea className="w-full bg-white/5 border border-white/10 rounded-3xl md:rounded-[4rem] px-6 py-5 md:px-10 md:py-8 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 min-h-[250px] resize-none text-base md:text-xl font-medium" placeholder="Define the objective..." required></textarea>
+                <textarea
+                  className="w-full bg-white/5 border border-white/10 rounded-3xl md:rounded-[4rem] px-6 py-5 md:px-10 md:py-8 focus:border-accent focus:ring-4 focus:ring-accent/10 outline-none text-text-primary transition-all duration-500 placeholder:text-slate-700 min-h-[250px] resize-none text-base md:text-xl font-medium"
+                  placeholder="Define the objective..."
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
               </div>
 
               <motion.button
                 whileHover={{ scale: 1.02, y: -3 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={isSubmitting}
-                className="btn-gradient w-full py-5 md:py-8 rounded-2xl md:rounded-[3rem] font-black text-xl md:text-2xl flex items-center justify-center gap-6 shadow-2xl shadow-accent/30 disabled:opacity-50 text-white border border-white/10"
+                className="btn-gradient w-full py-5 md:py-8 rounded-2xl md:rounded-[3rem] font-black text-xl md:text-2xl flex items-center justify-center gap-6 shadow-2xl shadow-accent/30 disabled:opacity-50 text-white border border-white/10 cursor-pointer"
               >
                 {isSubmitting ? (
                   <div className="w-10 h-10 border-[5px] border-white/30 border-t-white rounded-full animate-spin" />
