@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const GithubIcon = ({ className }) => (
@@ -63,6 +63,7 @@ const ProjectCard = ({ project, index }) => {
           src={project.image}
           alt={project.title}
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover group transition-all duration-1000 ease-out group-hover:scale-105"
         />
 
@@ -121,7 +122,27 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
   const projectList = [
+    {
+      title: "Startup Forge",
+      description:
+        "Developed a comprehensive platform to connect startup founders with talent, featuring a complete Role-Based Access Control (RBAC) system for Administrators, Founders, and Collaborators.",
+      tags: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "JSON Web Tokens (JWT)",
+        "JS",
+        "Tailwind",
+        "MongoDB",
+      ],
+      image: "/startup-forge.png",
+      repo: "https://github.com/Kabya55/Startup-Forge",
+      link: "https://startup-forge-beige.vercel.app",
+    },
     {
       title: "MediQueue",
       description:
@@ -192,6 +213,20 @@ const Projects = () => {
     },
   ];
 
+  const totalPages = Math.ceil(projectList.length / itemsPerPage);
+  const currentProjects = projectList.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    const section = document.getElementById("projects");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-20 md:py-40 relative" id="projects">
       <div className="container mx-auto px-6">
@@ -210,10 +245,54 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 md:gap-24">
-          {projectList.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-16 md:mt-24">
+            <button
+              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+              disabled={currentPage === 1}
+              className={`p-4 rounded-2xl glass border border-white/5 transition-all duration-300 ${
+                currentPage === 1
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-accent/20 hover:border-accent/30 text-text-primary cursor-pointer"
+              }`}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`w-12 h-12 rounded-2xl border text-sm font-black transition-all duration-300 cursor-pointer ${
+                    currentPage === page
+                      ? "bg-accent border-accent text-white shadow-lg glow-accent"
+                      : "glass border-white/5 text-text-secondary hover:text-accent hover:border-accent/30"
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className={`p-4 rounded-2xl glass border border-white/5 transition-all duration-300 ${
+                currentPage === totalPages
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-accent/20 hover:border-accent/30 text-text-primary cursor-pointer"
+              }`}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

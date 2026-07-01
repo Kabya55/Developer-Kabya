@@ -59,9 +59,8 @@ const Navbar = () => {
         paddingTop: headerPadding,
         paddingBottom: headerPadding,
       }}
-      className={`fixed top-0 w-full z-50 transition-all duration-700 glass-nav ${
-        isScrolled ? "shadow-2xl" : "bg-opacity-0 border-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-700 glass-nav ${isScrolled ? "shadow-2xl" : "bg-opacity-0 border-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between min-h-[70px]">
         {/* LEFT SECTION (Mobile: Menu + Logo | Desktop: Logo only) */}
@@ -97,15 +96,13 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative group transition-all duration-500 ${
-                  isActive ? "text-accent" : "hover:text-accent"
-                }`}
+                className={`relative group transition-all duration-500 ${isActive ? "text-accent" : "hover:text-accent"
+                  }`}
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-3 left-0 h-0.5 bg-gradient-to-r from-secondary to-soft transition-all duration-700 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
+                  className={`absolute -bottom-3 left-0 h-0.5 bg-gradient-to-r from-secondary to-soft transition-all duration-700 ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
@@ -156,11 +153,10 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`transition-all ${
-                    pathname === link.href
-                      ? "text-accent"
-                      : "text-text-secondary hover:text-accent"
-                  }`}
+                  className={`transition-all ${pathname === link.href
+                    ? "text-accent"
+                    : "text-text-secondary hover:text-accent"
+                    }`}
                 >
                   {link.name}
                 </Link>
